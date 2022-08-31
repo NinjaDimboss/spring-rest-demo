@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rest_api
+    username: root
+    password: root
+
+server:
+  port: 8088
+
