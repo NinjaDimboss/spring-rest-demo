@@ -6,10 +6,8 @@ import az.spring.rest.demo.springrestdemo.rest.model.response.RegistrationRespon
 
 public interface RegistrationService {
     RegistrationResponse getAllRegistrations();
-    RegistrationDto getRegistration(long id);
-    RegistrationResponse getInfoByUsername (String login);
+    RegistrationResponse getInfoByUsername (String username);
     void insert(RegistrationDto registrationDto);
-    void update(RegistrationDto registrationDto, long id);
-    void updateSome(RegistrationDto registrationDto, long id);
-    void delete(long id);
+
+
 }

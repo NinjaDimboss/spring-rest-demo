@@ -5,19 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegistrationDto {
-    private long id;
-
-    @NotBlank(message = "Ad boş olmamalıdır!")
-    private String ad;
-    @NotBlank(message = "Ad boş olmamalıdır!")
-    private String soyad;
-    private String Login;
+    private String email;
+    private String username;
     private String password;
 }

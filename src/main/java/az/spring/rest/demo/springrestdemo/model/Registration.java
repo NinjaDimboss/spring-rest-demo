@@ -16,10 +16,8 @@ public class Registration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String ad;
-    private String soyad;
-    private String login;
+    private String email;
+    private String username;
     private String password;
 
 }

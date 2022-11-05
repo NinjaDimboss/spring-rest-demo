@@ -26,26 +26,18 @@ public class  RegistrationServiceImpl implements RegistrationService {
                 .stream()
                 .map(registration -> convertToDto(registration))
                 .collect(Collectors.toList());
-
         return makeRegistrationResponse(registrationDtoList);
 
     }
 
-    @Override
-    public RegistrationDto getRegistration(long id) {
-        return registrationRepository.findById(id)
-                .map(registration -> convertToDto(registration))
-                .orElseThrow(() -> new CustomNotFoundException(ErrorCodeEnum.REGISTER_NOT_FOUND));
 
-    }
 
     @Override
-    public RegistrationResponse getInfoByUsername(String login) {
-            List<RegistrationDto>registrations = registrationRepository.findByLogin(login)
+    public RegistrationResponse getInfoByUsername(String username) {
+            List<RegistrationDto>registrations = registrationRepository.findByUsername(username)
                 .stream()
                 .map(registration -> convertToDto(registration))
                 .collect(Collectors.toList());
-
             return makeRegistrationResponse(registrations);
     }
 
@@ -57,46 +49,7 @@ public class  RegistrationServiceImpl implements RegistrationService {
     }
 
 
-    @Override
-    public void update(RegistrationDto registrationDto, long id) {
-        Registration registration = getRegistrationById(id);
-        registration.setPassword(registrationDto.getPassword());
-        registration.setId(registrationDto.getId());
-        registration.setLogin(registrationDto.getLogin());
 
-        registrationRepository.save(registration);
-    }
-
-    @Override
-    public void updateSome(RegistrationDto registrationDto, long id) {
-        Registration registration = getRegistrationById(id);
-
-        if (registrationDto.getPassword() != null)
-        registration.setPassword(registrationDto.getPassword());
-
-        if (registrationDto.getId() > 0)
-        registration.setId(registrationDto.getId());
-
-        if (registrationDto.getLogin() != null)
-        registration.setLogin(registrationDto.getLogin());
-
-        registrationRepository.save(registration);
-
-    }
-
-    @Override
-    public void delete(long id) {
-        Registration registration = getRegistrationById(id);
-        registrationRepository.delete(registration);
-    }
-
-    private Registration getRegistrationById(long id) {
-        return registrationRepository.findById(id)
-                .orElseThrow(()-> new CustomNotFoundException(ErrorCodeEnum.REGISTER_NOT_FOUND));
-
-
-
-    }
 
     private RegistrationDto convertToDto(Registration registration) {
         RegistrationDto registrationDto = new RegistrationDto();

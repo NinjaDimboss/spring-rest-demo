@@ -25,16 +25,12 @@ public class RegistrationController {
         return registrationService.getAllRegistrations();
     }
 
-    @GetMapping("/{registration-id}")
-    @Operation(summary = "İd-ə görə çağırma")
-    public RegistrationDto getInfo(@PathVariable("registration-id") long id) {
-        return registrationService.getRegistration(id);
-    }
+
 
     @GetMapping("/search")
-    @Operation(summary = "Login-ə görə axtarış")
-    public RegistrationResponse getInfoByUsername(@RequestParam("Login") String login) {
-        return registrationService.getInfoByUsername(login);
+    @Operation(summary = "Username-ə görə axtarış")
+    public RegistrationResponse getInfoByUsername(@RequestParam("username") String username) {
+        return registrationService.getInfoByUsername(username);
 
     }
 
@@ -45,22 +41,5 @@ public class RegistrationController {
 
     }
 
-    @PutMapping("/{id}")
-    @Operation(summary = "Əlavə etmə")
-    public void update(@RequestBody RegistrationDto registrationDto, @PathVariable("id") long id) {
-        registrationService.update(registrationDto, id);
-    }
-
-    @PatchMapping("/{id}")
-    public void updateSome(@RequestBody RegistrationDto registrationDto, @PathVariable("id") long id) {
-        registrationService.updateSome(registrationDto, id);
-    }
-
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Silmək")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") long id) {
-        registrationService.delete(id);
-    }
 
 }
