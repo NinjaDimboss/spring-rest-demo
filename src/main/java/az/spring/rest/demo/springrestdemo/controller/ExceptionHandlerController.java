@@ -22,8 +22,6 @@ public class ExceptionHandlerController {
                 .code(e.getCode())
                 .message(e.getMessage())
                 .build();
-
-
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
@@ -54,7 +52,7 @@ public class ExceptionHandlerController {
     public ErrorResponse validUnknownError(Exception e) {
         return ErrorResponse.builder()
                 .code(ErrorCodeEnum.UNKNOWN_ERROR.getCode())
-                .message(ErrorCodeEnum.UNKNOWN_ERROR.getMessage())
+                .message(e.getMessage())
                 .build();
     }
 
