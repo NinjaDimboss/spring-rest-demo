@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/registration")
 @Tag(name = "Qeydiyyat servisləri")
-
+@CrossOrigin
 public class RegistrationController {
     private final RegistrationService registrationService;
 
