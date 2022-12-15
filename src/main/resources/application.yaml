@@ -3,8 +3,18 @@ spring:
     url: jdbc:postgresql://localhost:5432/rest_api
     username: postgres
     password: root
-
+    driverClassName: org.postgresql.Driver
+    hibernate.dialect: org.hibernate.dialect.PostgreSQL95Dialect
+  sql:
+    init:
+      platform: postgres
 
 server:
   port: 8088
+
+
+spring.jpa:
+  database: POSTGRESQL
+  hibernate.ddl-auto: update
+  show-sql: true
 

@@ -10,14 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/registration")
 @Tag(name = "Qeydiyyat servisləri")
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RegistrationController {
     private final RegistrationService registrationService;
 
