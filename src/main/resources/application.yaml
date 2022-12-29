@@ -8,6 +8,8 @@ spring:
   sql:
     init:
       platform: postgres
+  main:
+    banner-mode: console
 
 server:
   port: 8088

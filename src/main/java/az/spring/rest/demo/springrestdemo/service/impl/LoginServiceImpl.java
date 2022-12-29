@@ -16,6 +16,6 @@ public class  LoginServiceImpl implements LoginService {
 
     @Override
     public LoginResponse getInfoByUsername() {
-        return null;
+        return (LoginResponse) loginRepository;
     }
 }

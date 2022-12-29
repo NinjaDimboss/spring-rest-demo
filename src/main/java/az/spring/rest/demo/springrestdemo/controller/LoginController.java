@@ -21,6 +21,7 @@ public class LoginController {
     @GetMapping
     @Operation(summary = "Daxilolanların siyahısı")
     public LoginResponse  getAllRegistrations() {
+
         return loginService.getInfoByUsername();
     }
 }

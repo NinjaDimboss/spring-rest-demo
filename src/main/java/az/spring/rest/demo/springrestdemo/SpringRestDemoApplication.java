@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         info = @Info(
                 title = "Registration Service",
                 description = "Cybernet qeydiyyat portalı",
-                version = "v1"
+                version = "2"
         )
 )
 public class SpringRestDemoApplication {
