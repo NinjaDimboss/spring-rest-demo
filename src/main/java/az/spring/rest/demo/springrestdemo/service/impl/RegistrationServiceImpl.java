@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class  RegistrationServiceImpl implements RegistrationService {
+public class RegistrationServiceImpl implements RegistrationService {
 
     private final RegistrationRepository registrationRepository;
     private final LoginRepository loginRepository;
@@ -39,19 +39,18 @@ public class  RegistrationServiceImpl implements RegistrationService {
     }
 
 
-
     @Override
     public RegistrationResponse getInfoByUsername(String username) {
-            List<RegistrationDto>registrations = registrationRepository.findByUsername(username)
+        List<RegistrationDto> registrations = registrationRepository.findByUsername(username)
                 .stream()
                 .map(registration -> convertRegistrationDto(registration))
                 .collect(Collectors.toList());
-            return makeRegistrationResponse(registrations);
+        return makeRegistrationResponse(registrations);
     }
 
 
     public LoginResponse getByUsername(String username) {
-        List<LoginDto>registrations = loginRepository.findByUsername(username)
+        List<LoginDto> registrations = loginRepository.findByUsername(username)
                 .stream()
                 .map(login -> convertToLoginDto(login))
                 .collect(Collectors.toList());
@@ -81,8 +80,6 @@ public class  RegistrationServiceImpl implements RegistrationService {
     }
 
 
-
-
     private RegistrationDto convertRegistrationDto(Registration registration) {
         RegistrationDto registrationDto = new RegistrationDto();
         BeanUtils.copyProperties(registration, registrationDto);
@@ -101,9 +98,10 @@ public class  RegistrationServiceImpl implements RegistrationService {
                 .build();
 
     }
+
     @Override
-    public void delete(Integer id){
-        registrationRepository.findById(id).orElseThrow(()-> new IdNotFoundException("Id not found. Id: " + id));
+    public void delete(Integer id) {
+        registrationRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Id not found. Id: " + id));
         registrationRepository.deleteById(id);
     }
 }

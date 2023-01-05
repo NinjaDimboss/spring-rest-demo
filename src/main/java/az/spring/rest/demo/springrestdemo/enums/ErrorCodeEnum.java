@@ -3,7 +3,9 @@ package az.spring.rest.demo.springrestdemo.enums;
 public enum ErrorCodeEnum {
     REGISTER_NOT_FOUND(1001, "Qeyd olunan ID ilə istifadəçi tapılmadı"),
     VALIDATION_ERROR(1002, "Yalnız rəqəmlərdən istifadə olunmalıdır!"),
-    UNKNOWN_ERROR(1000, "Bilinməyən xəta!");
+    UNKNOWN_ERROR(1000, "Bilinməyən xəta!"),
+    USER_NOT_FOUND(1003, "Qeyd Edilen Istifadeci Tapilmadi"),
+    OK(1004, "OK");
 
 
     private final String message;
