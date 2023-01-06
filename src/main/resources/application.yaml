@@ -1,3 +1,19 @@
+springdoc:
+  api-docs:
+    enabled: true
+    springdoc:
+      swagger-ui: /swagger-ui/index.html#/
+
+    security:
+      ignored: /**
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "/**"
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/rest_api
@@ -5,11 +21,29 @@ spring:
     password: root
     driverClassName: org.postgresql.Driver
     hibernate.dialect: org.hibernate.dialect.PostgreSQL95Dialect
+
+
   sql:
     init:
       platform: postgres
   main:
     banner-mode: console
+
+    allow-bean-definition-overriding: true
+
+  security:
+    user:
+      name:
+      password:
+
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://idsvr.example.com/oauth/v2/oauth-anonymous
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
 
 server:
   port: 8088
